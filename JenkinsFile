@@ -18,8 +18,10 @@ pipeline {
             
             steps {
                 cleanWs()
+               
                 script{
-                    currentBuild.ChangeSets.Items.each {
+                    echo 'executing the script'
+                    currentBuild.changeSets.Items.each {
                         echo it
                     }
                 }
