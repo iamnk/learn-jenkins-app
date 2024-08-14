@@ -23,9 +23,9 @@ pipeline {
                     echo 'executing the script'
                     currentBuild.changeSets.each {
                         it.getLogs().each {
-                            echo '''Name: $it.getAuthorName()
-                            Email: $it.getAuthorEmail()
-                            CommitID: $it.getCommitId()
+                            echo '''Name: ${it.getAuthorName()}
+                            Email: ${it.getAuthorEmail()}
+                            CommitID: ${it.getCommitId()}
                             '''
                         }
                     }
