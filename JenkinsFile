@@ -21,7 +21,7 @@ pipeline {
                
                 script{
                     echo 'executing the script'
-                    currentBuild.changeSets.Items.each {
+                    currentBuild.changeSets.getItems().each {
                         echo it
                     }
                 }
