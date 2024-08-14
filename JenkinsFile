@@ -26,7 +26,7 @@ pipeline {
                             echo """Name: ${it.getAuthorName()}
                             Email: ${it.getAuthorEmail()}
                             CommitID: ${it.getCommitId()}
-                            ..
+                            ...
                             """
                         }
                     }
