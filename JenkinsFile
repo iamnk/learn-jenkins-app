@@ -22,7 +22,7 @@ pipeline {
                 script{
                     echo 'executing the script'
                     currentBuild.changeSets.each {
-                        echo it
+                        echo it.getClass()
                     }
                 }
             
