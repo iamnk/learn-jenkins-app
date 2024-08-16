@@ -22,7 +22,8 @@ pipeline {
                 script{
                     echo 'executing the script'
                     echo "prev successfull commit + ${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
-                    currentBuild.getRawBuild().previousSuccessfulBuild.getRawBuild().getAllActions.each {
+                    currentBuild.previousSuccessfulBuild.getBuildVariables().each{ k, v -> println "${k}:${v}"}
+                    currentBuild.previousSuccessfulBuild.getRawBuild().getAllActions.each {
                         echo "class name: ${it.getClass().name}"
                     }
                     def scmAction = currentBuild.previousSuccessfulBuild.getRawBuild().getAllActions().find {it instanceof jenkins.scm.api.SCMRevisionAction}
