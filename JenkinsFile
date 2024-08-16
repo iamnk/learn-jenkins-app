@@ -22,6 +22,7 @@ pipeline {
                 script{
                     echo 'executing the script'
                     echo "prev successfull commit + ${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
+                    echo '${currentBuild.previousSuccessfulBuild.getClass().name}'
                     currentBuild.changeSets.each {
                         it.getLogs().each {
                             echo """Name: ${it.getAuthorName()}
