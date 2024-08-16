@@ -22,7 +22,7 @@ pipeline {
                 script{
                     echo 'executing the script'
                     echo "prev successfull commit + ${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
-                    def scmAction = currentBuild.previousSuccessfulBuild.getAllActions().find {it instanceof jenkins.scm.api.SCMRevisionAction}
+                    def scmAction = currentBuild.previousSuccessfulBuild.getRawBuild().getAllActions().find {it instanceof jenkins.scm.api.SCMRevisionAction}
                     echo "${scmAction.getRevision().hashCode()}"
                     currentBuild.changeSets.each {
                         it.getLogs().each {
