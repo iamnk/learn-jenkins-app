@@ -22,7 +22,7 @@ pipeline {
                 script{
                     echo 'executing the script'
                     echo "prev successfull commit + ${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
-                    currentBuild.previousSuccessfulBuild.getBuildVariables().each{ k, v -> println "${k}:${v}"}
+                    currentBuild.previousSuccessfulBuild.getBuildVariables().each{ k, v -> echo "${k}:${v}"}
                     currentBuild.previousSuccessfulBuild.getRawBuild().getAllActions().each {
                         echo "class name: ${it.getClass().name}"
                     }
