@@ -22,7 +22,8 @@ pipeline {
                 script{
                     echo 'executing the script'
                     echo "prev successfull commit + ${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
-                    echo "${currentBuild.previousSuccessfulBuild.getClass().name}"
+                    def scmAction = currentBuild.previousSuccessfulBuild.getAllActions().find {it instanceof jenkins.scm.api.SCMRevisionAction}
+                    echo "${scmAction.getRevision().hashCode()}"
                     currentBuild.changeSets.each {
                         it.getLogs().each {
                             echo """Name: ${it.getAuthorName()}
